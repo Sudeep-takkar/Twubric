@@ -1,0 +1,49 @@
+<h5><strong>Sort By</strong></h5>
+<div class="row">
+  <div id="sorts" class="btn-group col-md-12" role="group" aria-label="...">
+    <button id="totalSortButton" type="button" class="btn btn-default col-md-3" data-sort-by="total">Twubric Score</button>
+    <button id="friendsSortButton" type="button" class="btn btn-default col-md-3" data-sort-by="friends">Friends</button>
+    <button id="influenceSortButton" type="button" class="btn btn-default col-md-3" data-sort-by="influence">Influence</button>
+    <button id="chirpinessSortButton" type="button" class="btn btn-default col-md-3" data-sort-by="chirpiness">Chirpiness</button>
+  </div>
+</div>
+<br/>
+<h5><strong>Joined Twitter Between</strong></h5>
+<div class="row">
+  <div id="dateFields" class="col-md-12" role="group" aria-label="...">
+    <input type="text" class="col-md-6" id="startDate" placeholder="Start Date"/>
+    <input type="text" class="col-md-6" id="endDate" placeholder="End Date"/>
+  </div>
+</div>
+<br/><br/>
+<div class="isotope container col-md-12">
+  <div class="card-item card-layout" ng-repeat="value in twitterInfo">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <ul class="list-inline col-md-12">
+          <li class="fullname col-md-10"><h3>{{value.fullname}}</h3></li>
+          <li class="total col-md-2"><h3 align="right">{{value.twubric.total}}</h4></li>
+        </ul>
+      </div>
+      <div class="list-group">
+        <div class="list-group-item">
+          <table class="fit-parent-width">
+            <tbody>
+              <tr>
+                <td align="center"><p>CHIRPINESS</p><div class="chirpiness" align="center">{{value.twubric.chirpiness}}</div></td>
+                <td align="center"><p>FRIENDS</p><div class="friends" align="center">{{value.twubric.friends}}</div></td>
+                <td align="center"><p>INFLUENCE</p><div class="influence" align="center">{{value.twubric.influence}}</div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <ul class="list-inline">
+          <li><p class="joinDate"><strong>{{value.join_date * 1000 | date}}</strong></p></li>
+          <li class="remove-button"><button class="btn btn-danger" id="removeCard">Remove</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
